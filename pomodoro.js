@@ -8,13 +8,20 @@ const timerElement = document.getElementById("timer");
 let position = document.getElementById("position");
 const btnParametres = document.getElementById('openModalBtn'); // Bouton Paramètres
 
-// Afficher le temps initial au chargement de la page
-let afficheMinute = parseInt(temps / 60, 10);
-afficheMinute = afficheMinute < 10 ? "0" + afficheMinute : afficheMinute;
-let afficheSeconde = parseInt(temps % 60, 10);
-afficheSeconde = afficheSeconde < 10 ? "0" + afficheSeconde : afficheSeconde;
-timerElement.innerText = afficheMinute + " : " + afficheSeconde;
+//fonction affichant le temps 
+function afficheTemps(){
+    let afficheMinute = parseInt(temps / 60, 10);
+    afficheMinute = afficheMinute < 10 ? "0" + afficheMinute : afficheMinute;
+    let afficheSeconde = parseInt(temps % 60, 10);
+    afficheSeconde = afficheSeconde < 10 ? "0" + afficheSeconde : afficheSeconde;
+    timerElement.innerText = afficheMinute + " : " + afficheSeconde;
+}
 
+
+// Afficher le temps initial au chargement de la page
+afficheTemps()
+
+//fonction lancant le minuteur
 function commencer() {
     // Empêche de lancer plusieurs minuteurs en même temps
     if (!intervalId) {
@@ -23,17 +30,12 @@ function commencer() {
     }
 }
 
+//fonction du minuteur enchenant les minuteurs de travails puis de pause 
 function diminuerTemps() {
     pause.style.display = "none";
     reset.style.display = "block";
     
-    let minutesTime = parseInt(temps / 60, 10);
-    let secondesTime = parseInt(temps % 60, 10);
-
-    minutesTime = minutesTime < 10 ? "0" + minutesTime : minutesTime;
-    secondesTime = secondesTime < 10 ? "0" + secondesTime : secondesTime;
-
-    timerElement.innerText = minutesTime + " : " + secondesTime;
+    afficheTemps()
 
     if (temps === 0) {
         if (position.textContent === "pause") {
@@ -48,6 +50,7 @@ function diminuerTemps() {
     }
 }
 
+//fonction permettant de remettre à zéro le minuteur 
 function resetTimer() {
     // Arrêter le minuteur actuel
     clearInterval(intervalId);
@@ -58,13 +61,7 @@ function resetTimer() {
     position.textContent = "travail";
 
     // Réafficher le temps de travail
-    let minutesTime = parseInt(temps / 60, 10);
-    let secondesTime = parseInt(temps % 60, 10);
-
-    minutesTime = minutesTime < 10 ? "0" + minutesTime : minutesTime;
-    secondesTime = secondesTime < 10 ? "0" + secondesTime : secondesTime;
-
-    timerElement.innerText = minutesTime + " : " + secondesTime;
+    afficheTemps();
 
     // Réafficher le bouton "play"
     pause.style.display = "block";
@@ -106,7 +103,7 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
 
     if ((minutesTravail === 0 && secondsTravail === 0) || (minutesPause === 0 && secondsPause === 0)) {
         alert("Veuillez entrer un temps valide pour le travail ou la pause (pas 0 min et 0 sec).");
-        return; // Empêche la soumission du formulaire
+        return; // Empêche la soumission du formulaire si valeur incorrect
     }
 
 
@@ -116,7 +113,7 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
     tempsBase = totalSecondsTravail;
     tempsPauseBase = totalSecondsPause;
 
-    temps = tempsBase; // On commence par le temps de travail
+    temps = tempsBase;
 
     // Afficher le nouveau temps formaté
     let minuteAffiche = minutesTravail < 10 ? "0" + minutesTravail : minutesTravail;
