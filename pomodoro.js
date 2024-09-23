@@ -19,7 +19,31 @@ function afficheTemps(){
 
 
 // Afficher le temps initial au chargement de la page
-afficheTemps()
+window.onload = function() {
+    const minutesTravail = localStorage.getItem('minutesTravail') || 25; // 25 par défaut
+    const secondsTravail = localStorage.getItem('secondsTravail') || 0;  // 0 par défaut
+    const minutesPause = localStorage.getItem('minutesPause') || 5;      // 5 par défaut
+    const secondsPause = localStorage.getItem('secondsPause') || 0;      // 0 par défaut
+
+    // Mettre à jour les champs du formulaire
+    document.getElementById('minutesTravail').value = minutesTravail;
+    document.getElementById('secondsTravail').value = secondsTravail;
+    document.getElementById('minutesPause').value = minutesPause;
+    document.getElementById('secondsPause').value = secondsPause;
+
+    // Calculer le temps total pour le minuteur
+    const totalSecondsTravail = (parseInt(minutesTravail) * 60) + parseInt(secondsTravail);
+    const totalSecondsPause = (parseInt(minutesPause) * 60) + parseInt(secondsPause);
+
+    // Mettre à jour les variables globales
+    tempsBase = totalSecondsTravail;
+    tempsPauseBase = totalSecondsPause;
+
+    temps = tempsBase; // Initialiser avec le temps de travail
+
+    // Afficher le temps de travail
+    afficheTemps();
+};
 
 //fonction lancant le minuteur
 function commencer() {
@@ -109,6 +133,12 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
 
     const totalSecondsTravail = (parseInt(minutesTravail) * 60) + parseInt(secondsTravail);
     const totalSecondsPause = (parseInt(minutesPause) * 60) + parseInt(secondsPause);
+
+    // Sauvegarder les valeurs dans LocalStorage
+    localStorage.setItem('minutesTravail', minutesTravail);
+    localStorage.setItem('secondsTravail', secondsTravail);
+    localStorage.setItem('minutesPause', minutesPause);
+    localStorage.setItem('secondsPause', secondsPause);
 
     tempsBase = totalSecondsTravail;
     tempsPauseBase = totalSecondsPause;
