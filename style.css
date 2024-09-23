@@ -1,25 +1,44 @@
+body{
+    background-color: rgb(241, 28, 28);
+}
 #reset{
     display: none;
 }
 
 
+#TitreHaut{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    color: white;
+    background-color: rgb(190, 0, 0);
+}
 button {
-    padding: 10px 20px;
+    
     font-size: 16px;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-color: transparent;
+    border-style: none;
 }
+
+
 
 /* Styles pour la modal */
 .modal {
     display: none; /* Cacher la modal par défaut */
     position: fixed; /* Reste en place, même en scrollant */
-    z-index: 1; /* Au-dessus des autres éléments */
+    z-index: 100; /* Au-dessus des autres éléments */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto; /* Scroll si contenu trop grand */
     background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+    opacity: 1;
 }
 
 .modal-content {
@@ -63,3 +82,69 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    font-size: 4em;
+  }
+  
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background-color:rgb(173, 3, 3);
+    border: 0.1em solid white;
+  }
+
+  .biggercircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.1em;
+    height: 4.1em;
+    border-radius: 50%;
+    background-color:rgb(241, 28, 28);
+    border: 0.21em solid black;
+  }
+
+  #position{
+    font-size: 3em;
+    /*border-radius: 45%;
+    border: 1em;
+    border-color: red;*/
+}
+
+footer{
+    size: 100%;
+    text-align: center;
+    padding-top: 3em;
+}
+
+
+
+.mode,.minuteur,.reglage{
+    display: flex;
+    justify-content: center;
+}
+
+.mode p{
+    color: white;
+    border: 3em;
+    
+}
+.minuteur {
+    color: white;
+}
+
+.reglage{
+    padding-top: 1em;
+}
+

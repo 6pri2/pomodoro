@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <p id="position">travail</p>
-    <div id="timer">25 : 00</div>
-    <button id="pause" onclick="commencer()">play</button>
-    <button id="reset" onclick="resetTimer()">reset</button>
-    <!-- <a id="reset" href="./index.html">reset</a> -->
+   
+        <h1 id ="TitreHaut">Pomodoro Timer</h1>
 
-    <button id="openModalBtn">Paramètres</button>
+    <div id="cent" class="cent">
+                <div class="mode">
+                    <p id="position">travail</p>
+                </div>
+                <div class="minuteur">
+                    <section class="timer">
+                        <div class="biggercircle">
+                        <div class="circle">
+                        <div class="time">
+                            <div id="timer">25 : 00</div>
+                        </div>
+                        </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="reglage">
+                    
+                    <button id="pause" onclick="commencer()"><em class="fa-solid fa-circle-play fa-4x"></em></button>
+                    <button id="reset" onclick="resetTimer()"><em class="fa-solid fa-rotate fa-4x"></em></button>
+                    <button id="openModalBtn"><em class="fa-solid fa-gear fa-4x"></em></button>
+                </div>
+    </div>
+    
+    <!-- <a id="reset" href="./index.html">reset</a> -->
 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -37,7 +58,10 @@
 
     <div id="result"></div>
 
-
+    <script src="pomodoro.js"></script>
+    <script src="https://kit.fontawesome.com/05e08229e8.js" crossorigin="anonymous"></script>
 </body>
-<script src="pomodoro.js"></script>
+<footer>
+    <p>méthode Pomodoro par Alexandre Le Roy et Cyprien Duroy</p>
+</footer>
 </html>

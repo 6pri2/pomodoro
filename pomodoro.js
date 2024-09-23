@@ -7,6 +7,7 @@ let reset = document.getElementById("reset");
 const timerElement = document.getElementById("timer");
 let position = document.getElementById("position");
 const btnParametres = document.getElementById('openModalBtn'); // Bouton Paramètres
+let cent = document.getElementById('cent');
 
 //fonction affichant le temps 
 function afficheTemps(){
@@ -19,7 +20,31 @@ function afficheTemps(){
 
 
 // Afficher le temps initial au chargement de la page
-afficheTemps()
+window.onload = function() {
+    const minutesTravail = localStorage.getItem('minutesTravail') || 25; // 25 par défaut
+    const secondsTravail = localStorage.getItem('secondsTravail') || 0;  // 0 par défaut
+    const minutesPause = localStorage.getItem('minutesPause') || 5;      // 5 par défaut
+    const secondsPause = localStorage.getItem('secondsPause') || 0;      // 0 par défaut
+
+    // Mettre à jour les champs du formulaire
+    document.getElementById('minutesTravail').value = minutesTravail;
+    document.getElementById('secondsTravail').value = secondsTravail;
+    document.getElementById('minutesPause').value = minutesPause;
+    document.getElementById('secondsPause').value = secondsPause;
+
+    // Calculer le temps total pour le minuteur
+    const totalSecondsTravail = (parseInt(minutesTravail) * 60) + parseInt(secondsTravail);
+    const totalSecondsPause = (parseInt(minutesPause) * 60) + parseInt(secondsPause);
+
+    // Mettre à jour les variables globales
+    tempsBase = totalSecondsTravail;
+    tempsPauseBase = totalSecondsPause;
+
+    temps = tempsBase; // Initialiser avec le temps de travail
+
+    // Afficher le temps de travail
+    afficheTemps();
+};
 
 //fonction lancant le minuteur
 function commencer() {
@@ -33,7 +58,7 @@ function commencer() {
 //fonction du minuteur enchenant les minuteurs de travails puis de pause 
 function diminuerTemps() {
     pause.style.display = "none";
-    reset.style.display = "block";
+    reset.style.display = "contents";
     
     afficheTemps()
 
@@ -64,7 +89,7 @@ function resetTimer() {
     afficheTemps();
 
     // Réafficher le bouton "play"
-    pause.style.display = "block";
+    pause.style.display = "contents";
     reset.style.display = "none";
 
     // Réactiver le bouton "Paramètres"
@@ -77,23 +102,27 @@ const btn = document.getElementById('openModalBtn');
 const span = document.getElementsByClassName('close')[0];
 
 btn.onclick = function() {
-    modal.style.display = 'block';
+    cent.style.display = 'none'
+    modal.style.display = 'contents';
 }
 
 // Fermer la modale quand on clique sur "X"
 span.onclick = function() {
     modal.style.display = 'none';
+    cent.style.display ='contents';
 }
 
 // Fermer la modale quand on clique à l'extérieur
 window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = 'none';
+        
     }
 }
 
 // Gestion du formulaire de temps
 document.getElementById('timeForm').addEventListener('submit', function(event) {
+
     event.preventDefault();
 
     const minutesTravail = parseInt(document.getElementById('minutesTravail').value);
@@ -110,6 +139,12 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
     const totalSecondsTravail = (parseInt(minutesTravail) * 60) + parseInt(secondsTravail);
     const totalSecondsPause = (parseInt(minutesPause) * 60) + parseInt(secondsPause);
 
+    // Sauvegarder les valeurs dans LocalStorage
+    localStorage.setItem('minutesTravail', minutesTravail);
+    localStorage.setItem('secondsTravail', secondsTravail);
+    localStorage.setItem('minutesPause', minutesPause);
+    localStorage.setItem('secondsPause', secondsPause);
+
     tempsBase = totalSecondsTravail;
     tempsPauseBase = totalSecondsPause;
 
@@ -123,6 +158,7 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
 
     // Fermer la modale après soumission
     modal.style.display = 'none';
+    cent.style.display = 'contents'
 
     // Arrêter le minuteur en cours et le réinitialiser
     clearInterval(intervalId);
