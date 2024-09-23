@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="position">travail</p>
+    <div id="timer">25 : 00</div>
+    <button id="pause" onclick="commencer()">play</button>
+    <a id="reset" href="./index.html">reset</a>
+
+    <button id="openModalBtn">Paramètres</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Entrer un temps</h2>
+            <form id="timeForm">
+                <h3>Temps de travail : </h3>
+                <label for="minutesTravail">Minutes :</label>
+                <input type="number" id="minutesTravail" name="minutesTravail" min="0" value="25" required>
+                <label for="secondsTravail">Secondes :</label>
+                <input type="number" id="secondsTravail" name="secondsTravail" min="0" max="59" value="00" required>
+                <h3>Temps de travail : </h3>
+                <label for="minutesPause">Minutes :</label>
+                <input type="number" id="minutesPause" name="minutesPause" min="0" value="05" required>
+                <label for="secondsPause">Secondes :</label>
+                <input type="number" id="secondsPause" name="secondsPause" min="0" max="59" value="00" required>                
+                <button type="submit">Valider</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="result"></div>
+
+
+</body>
+<script src="pomodoro.js"></script>
+</html>
