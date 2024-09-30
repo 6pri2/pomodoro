@@ -1,84 +1,132 @@
-body{
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
     background-color: rgb(241, 28, 28);
-    height: 10%;
-}
-#reset{
-    display: none;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh; /* S'assure que la page occupe toujours 100% de la hauteur de l'écran */
+    margin: 0;
 }
 
-
-#TitreHaut{
+/* Title at the top */
+#TitreHaut {
     text-align: center;
     font-weight: bold;
-    margin-bottom: 2%;
-    margin-top: 2%;
     color: white;
-    background-color: rgb(190, 0, 0);
-    height: 10%;
+    font-size: 3em; /* Titre plus grand */
+    margin-top: 20px; /* Espace en haut */
 }
-button {
-    
-    font-size: 16px;
+
+/* Center Container */
+.cent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Le contenu s'adapte à l'espace disponible entre le titre et le footer */
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Timer Circle */
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.biggercircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16em; /* Cercle plus grand */
+    height: 16em;
+    border-radius: 50%;
+    background-color: rgb(241, 28, 28);
+    border: 0.3em solid black;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14em; /* Cercle intérieur plus grand */
+    height: 14em;
+    border-radius: 50%;
+    background-color: rgb(173, 3, 3);
+    border: 0.15em solid white;
+}
+
+#timer {
+    font-size: 5em; /* Texte plus grand pour le minuteur */
+    color: white;
+}
+
+#position{
+    font-size: 5em; /* Texte plus grand pour le minuteur */
+    color: white;
+}
+
+/* Control Buttons */
+.reglage button {
+    font-size: 2em;
+    color: white;
     cursor: pointer;
-    background-color: transparent;
+    background: transparent;
     border: none;
-    outline: none;
-    border-color: transparent;
-    border-style: none;
-    color: white;
+    margin: 20px;
 }
 
+button:focus {
+    outline: none;
+}
 
-
-/* Styles pour la modal */
+/* Modal */
 .modal {
-    display: none; /* Cacher la modal par défaut */
-    position: fixed; /* Reste en place, même en scrollant */
-    z-index: 100; /* Au-dessus des autres éléments */
+    display: none;
+    position: fixed;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Scroll si contenu trop grand */
-    background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto; /* Centrer la modal */
+    background-color: white;
     padding: 20px;
-    border: 1px solid #888;
-    width: 300px; /* Largeur de la modal */
-    text-align: left;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
 }
 
 input {
-    margin-bottom: 10px;
-    padding: 5px;
     width: 100%;
+    padding: 10px;
+    margin: 10px 0;
 }
 
 button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
     width: 100%;
+    padding: 10px;
+    background-color: #f50014;
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
@@ -86,82 +134,58 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-.timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    font-size: 4em;
-    
-  }
-  
-  .circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 4em;
-    height: 4em;
-    border-radius: 50%;
-    background-color:rgb(173, 3, 3);
-    border: 0.1em solid white;
-  }
-
-  .biggercircle{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 4.1em;
-    height: 4.1em;
-    border-radius: 50%;
-    background-color:rgb(241, 28, 28);
-    border: 0.21em solid black;
-  }
-
-  #position{
-    font-size: 3em;
-    margin-top:0;
-    margin-bottom: 0;
-    padding-top :0;
-    padding-bottom: 0;
-    /*border-radius: 45%;
-    border: 1em;
-    border-color: red;*/
-}
-
-footer{
-    margin-top:0;
-    margin-bottom: 0;
-    padding-top :0;
-    padding-bottom: 0;
-    height: 10%;
-    width: 100%;
+/* Footer fixed at the bottom */
+footer {
     text-align: center;
-    /* padding-top: 3em; */
-}
-
-
-
-.mode,.minuteur,.reglage{
-    display: flex;
-    justify-content: center;
-}
-
-.mode{
-    height: 10%;
-}
-.mode p{
+    padding: 10px;
     color: white;
-    border: 3em;
-    
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
-.minuteur {
-    color: white;
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .biggercircle {
+        width: 12em;
+        height: 12em;
+    }
+
+    .circle {
+        width: 10em;
+        height: 10em;
+    }
+
+    #timer {
+        font-size: 4em;
+    }
+
+    #TitreHaut {
+        font-size: 2.5em;
+    }
 }
 
+@media (max-width: 480px) {
+    .biggercircle {
+        width: 10em;
+        height: 10em;
+    }
 
+    .circle {
+        width: 8em;
+        height: 8em;
+    }
 
-.cent{
-    height:10%;
+    #timer {
+        font-size: 3em;
+    }
+
+    #TitreHaut {
+        font-size: 2em;
+    }
+
+    .cent {
+        width: 90%;
+    }
 }

@@ -15,7 +15,7 @@ function afficheTemps(){
     afficheMinute = afficheMinute < 10 ? "0" + afficheMinute : afficheMinute;
     let afficheSeconde = parseInt(temps % 60, 10);
     afficheSeconde = afficheSeconde < 10 ? "0" + afficheSeconde : afficheSeconde;
-    timerElement.innerText = afficheMinute + " : " + afficheSeconde;
+    timerElement.innerText = afficheMinute + " \n " + afficheSeconde;
 }
 
 
@@ -52,6 +52,7 @@ function commencer() {
     if (!intervalId) {
         intervalId = setInterval(diminuerTemps, 1000);
         btnParametres.disabled = true; // Désactiver le bouton "Paramètres"
+        btnParametres.style.display='none';
     }
 }
 
@@ -93,6 +94,7 @@ function resetTimer() {
     reset.style.display = "none";
 
     // Réactiver le bouton "Paramètres"
+    btnParametres.style.display = "contents" ;
     btnParametres.disabled = false;
 }
 
@@ -154,7 +156,7 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
     let minuteAffiche = minutesTravail < 10 ? "0" + minutesTravail : minutesTravail;
     let secondAffiche = secondsTravail < 10 ? "0" + secondsTravail : secondsTravail;
 
-    timerElement.innerText = minuteAffiche + " : " + secondAffiche;
+    timerElement.innerText = minuteAffiche + " \n " + secondAffiche;
 
     // Fermer la modale après soumission
     modal.style.display = 'none';
@@ -167,3 +169,6 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
     // Réactiver le bouton "Paramètres"
     btnParametres.disabled = false;
 });
+
+modal.style.display='none';
+reset.style.display='none' ;
