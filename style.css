@@ -1,11 +1,11 @@
-/* Reset basic styles */
+/* remmetre le style de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General Styles */
+/* Style général */
 body {
     background-color: rgb(241, 28, 28);
     font-family: 'Ubuntu', sans-serif;
@@ -17,7 +17,7 @@ body {
     margin: 0;
 }
 
-/* Title at the top */
+/* Titre en haut */
 #TitreHaut {
     text-align: center;
     font-weight: bold;
@@ -26,7 +26,7 @@ body {
     margin-top: 20px; /* Espace en haut */
 }
 
-/* Center Container */
+/* Contenaire central */
 .cent {
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@ body {
     padding: 20px;
 }
 
-/* Timer Circle */
+/* Style Timer */
 .timer {
     display: flex;
     justify-content: center;
@@ -86,7 +86,7 @@ body {
     margin-bottom:20% ;
 }
 
-/* Control Buttons */
+/* Style bouton */
 .reglage{
     padding-top: 5%;
 }
@@ -103,7 +103,7 @@ button:focus {
     outline: none;
 }
 
-/* Modal */
+/* style fenêtre Modal */
 .modal {
     display: none;
     position: fixed;
@@ -145,7 +145,7 @@ button[type="submit"]:hover {
     background-color: #910404;
 }
 
-/* Footer fixed at the bottom */
+/* le pied de page fixé en bas de la page */
 footer {
     text-align: center;
     padding: 10px;
@@ -156,7 +156,7 @@ footer {
     bottom: 0;
 }
 
-/* Media Queries for Responsive Design */
+/* Media Queries pour le design responsive */
 @media (max-width: 768px) {
     .biggercircle {
         width: 12em;
