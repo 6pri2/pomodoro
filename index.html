@@ -22,7 +22,7 @@
         </div>
         <div class="minuteur">
             <!-- Section contenant le cercle de la minuterie -->
-            <section class="timer">
+            <div class="timer">
                 <div class="biggercircle">
                     <div class="circle">
                         <div class="time">
@@ -31,14 +31,14 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <!-- Boutons de contrôle (Play, Reset, Paramètres) -->
         <div class="reglage">
-            <button id="pause" onclick="commencer()"><em class="fa-solid fa-circle-play fa-2x"></em></button>
-            <button id="reset" onclick="resetTimer()"><em class="fa-solid fa-rotate fa-2x"></em></button>
-            <button id="openModalBtn"><em class="fa-solid fa-gear fa-2x"></em></button>
+            <button id="pause" onclick="commencer()" aria-label="commencer"><em class="fa-solid fa-circle-play fa-2x"></em></button>
+            <button id="reset" onclick="resetTimer()" aria-label="redémarrer"><em class="fa-solid fa-rotate fa-2x"></em></button>
+            <button id="openModalBtn" aria-label="option"><em class="fa-solid fa-gear fa-2x"></em></button>
         </div>
     </div>
 
@@ -71,10 +71,12 @@
     <!-- Scripts JavaScript -->
     <script src="pomodoro.js"></script>
     <script src="https://kit.fontawesome.com/05e08229e8.js" crossorigin="anonymous"></script>
-</body>
 
 <!-- Pied de page -->
 <footer>
     <p>méthode Pomodoro par Alexandre Le Roy et Cyprien Duroy</p>
 </footer>
+</body>
+
+
 </html>
