@@ -4,4 +4,5 @@ en marche (il est au début en mode travail). Lorsque le minuteur se termine, il
 il suffit d'appuyer sur le bouton double fléche. Si l'utilisateur veut redéfinir le temps de pause et de travail, il suffit d'appuyer sur le bouton
 rouage. Un formulaire apparaittra et il suffira d'inscrire un temps pour le temps de pause et un pour celui de travail. une fois le formulaire envoyer,
 il suffira seulement de relancer le minuteur et de se remettre au travail !
+
 Vous pouver trouver le site ici -> 6pri2.github.io/pomodoro/
