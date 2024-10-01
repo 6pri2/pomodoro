@@ -50,13 +50,13 @@
             <form id="timeForm" method="post">
                 <h3>Temps de travail :</h3>
                 <label for="minutesTravail">Minutes :</label>
-                <input type="number" id="minutesTravail" name="minutesTravail" min="0" value="25" required>
+                <input type="number" id="minutesTravail" name="minutesTravail" min="0" max="60" value="25" required>
                 <label for="secondsTravail">Secondes :</label>
                 <input type="number" id="secondsTravail" name="secondsTravail" min="0" max="59" value="0" required>
 
                 <h3>Temps de pause :</h3>
                 <label for="minutesPause">Minutes :</label>
-                <input type="number" id="minutesPause" name="minutesPause" min="0" value="5" required>
+                <input type="number" id="minutesPause" name="minutesPause" min="0" max = "60" value="5" required>
                 <label for="secondsPause">Secondes :</label>
                 <input type="number" id="secondsPause" name="secondsPause" min="0" max="59" value="0" required>
                 

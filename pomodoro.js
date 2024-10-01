@@ -132,9 +132,16 @@ document.getElementById('timeForm').addEventListener('submit', function(event) {
     const minutesPause = parseInt(document.getElementById('minutesPause').value);
     const secondsPause = parseInt(document.getElementById('secondsPause').value);
 
+    //Vérification que le temps ne soit pas égale à zéro
     if ((minutesTravail === 0 && secondsTravail === 0) || (minutesPause === 0 && secondsPause === 0)) {
         alert("Veuillez entrer un temps valide pour le travail ou la pause (pas 0 min et 0 sec).");
         return; // Empêche la soumission du formulaire si valeur incorrect
+    }
+
+    //Vérification que le timer soit inférieur à 1h
+    if((minutesTravail ===60 && secondsTravail >0)||(minutesPause === 60 && secondsPause >0)){
+        alert("Veuillez entre un temps valide pour le travail et la pause (impossible au dessus de 60 min)")
+        return;
     }
 
 
